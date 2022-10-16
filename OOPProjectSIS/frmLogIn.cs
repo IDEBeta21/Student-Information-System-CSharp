@@ -43,8 +43,8 @@ namespace OOPProjectSIS
             {
                 OleDbCommand getLogInInfo = new OleDbCommand("SELECT * FROM Account WHERE UserName = @user AND UserPassword = @pass", con);
                 
-                getLogInInfo.Parameters.Add("@user", SqlDbType.VarChar).Value = txtUserName.Text;
-                getLogInInfo.Parameters.Add("@pass", SqlDbType.VarChar).Value = txtUserPass.Text;
+                getLogInInfo.Parameters.AddWithValue("@user", SqlDbType.VarChar).Value = txtUserName.Text;
+                getLogInInfo.Parameters.AddWithValue("@pass", SqlDbType.VarChar).Value = txtUserPass.Text;
                 
                 OleDbDataReader readLoginInfo = getLogInInfo.ExecuteReader();
 
